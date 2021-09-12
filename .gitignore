@@ -3,3 +3,4 @@ shared
 .vlocal.conf.yml
 ubuntu-bionic-18.04-cloudimg-console.log
 .idea
+.vs
