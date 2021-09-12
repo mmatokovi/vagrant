@@ -1,0 +1,134 @@
+---
+- hosts: all
+  name: Pantr.io server and application setup
+  become: yes
+
+  tasks:
+  - name: Add repository for PHP versions (Ubuntu).
+    apt_repository: repo='ppa:ondrej/php'
+      
+  - name: Install PHP
+    apt:
+      name:
+        - php8.0
+        - php8.0-fpm
+        - php8.0-common
+        - php8.0-zip
+        - php8.0-curl
+        - php8.0-xml
+        - php8.0-xml
+        - php8.0-ldap
+        - php8.0-imap
+        - php8.0-mbstring
+        - php8.0-mysql
+        - php8.0-pdo
+        - php8.0-intl
+        - php8.0-cli
+        - php8.0-bcmath
+        - php8.0-opcache
+        - php8.0-pgsql
+        - php8.0-pdo
+        - php8.0-redis
+        - php-xdebug
+      state: present
+
+  - name: Configure PHP (FPM)
+    copy:
+      src: /ansible/assets/php-fpm.ini
+      dest: /etc/php/8.0/fpm/php.ini
+
+  - name: Install composer
+    include_role:
+      name: composer
+
+  - name: Install node
+    include_role:
+      name: node
+
+  - name: Install Redis
+    apt:
+      name: redis
+      state: present
+
+  - name: Install Supervisor
+    apt:
+      name: supervisor
+      state: present
+
+  - name: Install Mysql
+    include_role:
+      name: mysql
+
+  - name: Install nginx
+    include_role:
+      name: nginx
+
+  - name: Ensure /var/www/html directory has correct permissions.
+    file:
+      path: /var/www/html
+      state: directory
+      owner: www-data
+      group: www-data
+
+  - name: Clone the code repository to the docroot.
+    git:
+      repo: 'https://github.com/planetchili/pantrio.git'
+      dest: /var/www/html/pantrio
+      update: no
+    become_user: www-data
+
+  - name: Install composer packages
+    community.general.composer:
+      command: install
+      no_dev: no
+      working_dir: /var/www/html/pantrio
+    become_user: www-data
+
+  - name: Copy app env
+    copy:
+      src: /var/www/html/pantrio/.env.example
+      dest: /var/www/html/pantrio/.env
+    become_user: www-data
+
+  - name: generate laravel key
+    shell: php artisan key:generate
+    args:
+      chdir: /var/www/html/pantrio
+    become_user: www-data
+
+#  - name: link laravel storage
+#    shell: php artisan storage:link
+#    args:
+#      chdir: /var/www/html/pantrio
+
+  - name: Laravel migrate
+    shell: php artisan migrate:fresh --seed
+    args:
+      chdir: /var/www/html/pantrio
+
+  - name: Install npm packages
+    community.general.npm:
+      path: /var/www/html/pantrio
+
+###  - name: run webpack
+###    shell: npm run build
+###    args:
+###      chdir: /var/www/html/ravel
+
+  - name: convenient link from dev user home to site directory
+    file:
+      src: /var/www/html/pantrio
+      dest: /home/vagrant/pantrio
+      state: link
+
+  - name: add laravel artisan alias
+    lineinfile:
+      dest: /home/vagrant/.bashrc
+      line: "alias art='php artisan'"
+      owner: vagrant
+
+#supervisord master config + horizon/larasock
+
+# figure out
+#   requirements.yml ansible-galaxy collection loading vagrant.ansible_local
+#   could just run ansible-galaxy collection install -r requirements.yml in a separate ansible playbook
