@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
   # set defaults for any data that was not set
   hash_default lcfg, 'network', {}
   hash_default lcfg['network'], 'is_private', true
-  hash_default lcfg['network'], 'ip_address', '192.168.33.20'
+  hash_default lcfg['network'], 'ip_address', '192.168.33.77'
   hash_default lcfg['network'], 'hostname', "#{project_name}.wut"
   hash_default lcfg['network'], 'forward', {}
   hash_default lcfg['network']['forward'], 'from', 0
