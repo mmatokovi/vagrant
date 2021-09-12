@@ -1,0 +1,8 @@
+---
+project_name: [project_name]
+network:
+  ip_address: 192.168.33.77
+  hostname: [project_name.io]
+vbox:
+  memory: 2048
+---
