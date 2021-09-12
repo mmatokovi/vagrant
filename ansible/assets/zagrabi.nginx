@@ -2,9 +2,9 @@ server {
     listen 80;
     listen [::]:80;
 
-    root /var/www/html/pantrio/public;
+    root /var/www/html/zagrabi/public;
 
-    server_name pantr.io;
+    server_name zagrabi.io;
 
     charset utf-8;
 

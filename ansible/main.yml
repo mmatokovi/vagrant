@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Pantr.io server and application setup
+  name: Zagrabi.io server and application setup
   become: yes
 
   tasks:
@@ -72,8 +72,8 @@
 
   - name: Clone the code repository to the docroot.
     git:
-      repo: 'https://github.com/planetchili/pantrio.git'
-      dest: /var/www/html/pantrio
+      repo: 'https://github.com/mmatokovi/zagrabi.git'
+      dest: /var/www/html/zagrabi
       update: no
     become_user: www-data
 
@@ -81,34 +81,34 @@
     community.general.composer:
       command: install
       no_dev: no
-      working_dir: /var/www/html/pantrio
+      working_dir: /var/www/html/zagrabi
     become_user: www-data
 
   - name: Copy app env
     copy:
-      src: /var/www/html/pantrio/.env.example
-      dest: /var/www/html/pantrio/.env
+      src: /var/www/html/zagrabi/.env.example
+      dest: /var/www/html/zagrabi/.env
     become_user: www-data
 
   - name: generate laravel key
     shell: php artisan key:generate
     args:
-      chdir: /var/www/html/pantrio
+      chdir: /var/www/html/zagrabi
     become_user: www-data
 
 #  - name: link laravel storage
 #    shell: php artisan storage:link
 #    args:
-#      chdir: /var/www/html/pantrio
+#      chdir: /var/www/html/zagrabi
 
   - name: Laravel migrate
     shell: php artisan migrate:fresh --seed
     args:
-      chdir: /var/www/html/pantrio
+      chdir: /var/www/html/zagrabi
 
   - name: Install npm packages
     community.general.npm:
-      path: /var/www/html/pantrio
+      path: /var/www/html/zagrabi
 
 ###  - name: run webpack
 ###    shell: npm run build
@@ -117,8 +117,8 @@
 
   - name: convenient link from dev user home to site directory
     file:
-      src: /var/www/html/pantrio
-      dest: /home/vagrant/pantrio
+      src: /var/www/html/zagrabi
+      dest: /home/vagrant/zagrabi
       state: link
 
   - name: add laravel artisan alias

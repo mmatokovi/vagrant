@@ -4,15 +4,15 @@
     name: nginx
     state: present
 
-- name: copy nginx config for pantrio
+- name: copy nginx config for zagrabi
   copy:
-    src: /ansible/assets/pantrio.nginx
-    dest: /etc/nginx/sites-available/pantrio.nginx
+    src: /ansible/assets/zagrabi.nginx
+    dest: /etc/nginx/sites-available/zagrabi.nginx
 
-- name: Create symbolic link for pantrio enable
+- name: Create symbolic link for zagrabi enable
   file:
-    src: /etc/nginx/sites-available/pantrio.nginx
-    dest: /etc/nginx/sites-enabled/pantrio
+    src: /etc/nginx/sites-available/zagrabi.nginx
+    dest: /etc/nginx/sites-enabled/zagrabi
     state: link
 
 - name: Remove default site config
