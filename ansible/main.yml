@@ -66,38 +66,38 @@
 
 #PART 2 after git!--------------------REMOVE IF EVERYTHING SET---------------------------------------
 
-# - name: Ensure /var/www/html directory has correct permissions.
-#   file:
-#     path: /var/www/html
-#     state: directory
-#     owner: www-data
-#     group: www-data
+  - name: Ensure /var/www/html directory has correct permissions.
+    file:
+      path: /var/www/html
+      state: directory
+      owner: www-data
+      group: www-data
 
-# - name: Clone the code repository to the docroot.
-#   git:
-#    repo: 'https://github.com/mmatokovi/zagrabi.git'
-#     dest: /var/www/html/zagrabi
-#     update: no
-#   become_user: www-data
+  - name: Clone the code repository to the docroot.
+    git:
+     repo: 'https://github.com/mmatokovi/zagrabi.git'
+     dest: /var/www/html/zagrabi
+     update: no
+    become_user: www-data
 
-# - name: Install composer packages
-#   community.general.composer:
-#     command: install
-#     no_dev: no
-#     working_dir: /var/www/html/zagrabi
-#   become_user: www-data
+  - name: Install composer packages
+    community.general.composer:
+      command: install
+      no_dev: no
+      working_dir: /var/www/html/zagrabi
+    become_user: www-data
 
-# - name: Copy app env
-#   copy:
-#     src: /var/www/html/zagrabi/.env.example
-#     dest: /var/www/html/zagrabi/.env
-#   become_user: www-data
+  - name: Copy app env
+    copy:
+      src: /var/www/html/zagrabi/.env.example
+      dest: /var/www/html/zagrabi/.env
+    become_user: www-data
 
-# - name: generate laravel key
-#   shell: php artisan key:generate
-#   args:
-#     chdir: /var/www/html/zagrabi
-#   become_user: www-data
+  - name: generate laravel key
+    shell: php artisan key:generate
+    args:
+      chdir: /var/www/html/zagrabi
+    become_user: www-data
 
 #PART 2 ---------------------------------------------------------------------------
 
