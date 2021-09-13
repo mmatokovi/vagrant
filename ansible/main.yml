@@ -64,8 +64,7 @@
       name: nginx
 
 
-#PART 2 after git!-----------------------------------------------------------
-
+#PART 2 after git!--------------------REMOVE IF EVERYTHING SET---------------------------------------
 
 # - name: Ensure /var/www/html directory has correct permissions.
 #   file:
@@ -99,7 +98,6 @@
 #   args:
 #     chdir: /var/www/html/zagrabi
 #   become_user: www-data
-
 
 #PART 2 ---------------------------------------------------------------------------
 
