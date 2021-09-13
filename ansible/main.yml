@@ -70,12 +70,12 @@
       owner: www-data
       group: www-data
 
-  - name: Clone the code repository to the docroot.
-    git:
-      repo: 'https://github.com/mmatokovi/zagrabi.git'
-      dest: /var/www/html/zagrabi
-      update: no
-    become_user: www-data
+#  - name: Clone the code repository to the docroot.
+#    git:
+#     repo: 'https://github.com/mmatokovi/zagrabi.git'
+#      dest: /var/www/html/zagrabi
+#      update: no
+#    become_user: www-data
 
   - name: Install composer packages
     community.general.composer:
