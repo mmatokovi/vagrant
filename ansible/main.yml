@@ -63,6 +63,10 @@
     include_role:
       name: nginx
 
+
+#PART 2 after git!-----------------------------------------------------------
+
+
 # - name: Ensure /var/www/html directory has correct permissions.
 #   file:
 #     path: /var/www/html
@@ -95,6 +99,9 @@
 #   args:
 #     chdir: /var/www/html/zagrabi
 #   become_user: www-data
+
+
+#PART 2 ---------------------------------------------------------------------------
 
 # - name: link laravel storage
 #   shell: php artisan storage:link
