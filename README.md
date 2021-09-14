@@ -2,6 +2,10 @@
 
 Dev + Deployment Environment 
 
+## Initial config
+
+configure .vlocal.conf.yml rename project names
+
 ## After vagrant up
 
 vagrant ssh
