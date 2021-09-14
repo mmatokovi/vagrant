@@ -4,6 +4,8 @@ Dev + Deployment Environment
 
 ## Initial config
 
+> Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+
 configure .vlocal.conf.yml rename project names
 
 ## After vagrant up
