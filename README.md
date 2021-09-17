@@ -13,7 +13,7 @@ configure .vlocal.conf.yml rename project names
 vagrant ssh
 
 ### Install Composer
-cd /var/www/html
+`cd /var/www/html`
 
 composer create-project laravel/laravel project_name
 
