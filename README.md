@@ -32,6 +32,11 @@ remove comments at ansible>main.yml
 
 ## Useful commands
 
+```bash
+cd /var/www/html
+composer create-project laravel/laravel project_name
+```
+
 sudo ls /root  
 sudo su  
 ll  
