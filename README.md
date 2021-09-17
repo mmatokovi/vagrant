@@ -8,9 +8,15 @@ Dev + Deployment Environment
 
 configure .vlocal.conf.yml rename project names
 
-## After vagrant up
-
+```Powershell
 vagrant ssh
+```
+```bash
+cd /var/www/html
+```
+```bash
+composer create-project laravel/laravel project_name
+```
 
 ### Install Composer
 `cd /var/www/html`
