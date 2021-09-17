@@ -34,6 +34,8 @@ remove comments at ansible>main.yml
 
 ```bash
 cd /var/www/html
+```
+```bash
 composer create-project laravel/laravel project_name
 ```
 
