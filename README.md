@@ -4,6 +4,16 @@ Dev + Deployment Environment
 
 ## Initial config
 
+if windows user profile contains error msg: `incompatible character encodings: CP852 and Windows-1250`
+C:\HashiCorp\Vagrant\embedded\gems\2.2.19\gems\vagrant-2.2.19\bin\vagrant
+
+```
+#!/usr/bin/env ruby
+
+Encoding.default_external = Encoding.find('Windows-1250')
+Encoding.default_internal = Encoding.find('Windows-1250')
+```
+
 > Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
 
 configure .vlocal.conf.yml rename project names
