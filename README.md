@@ -37,14 +37,14 @@ composer create-project laravel/laravel project_name
 composer create-project laravel/laravel project_name
 
 ## git intit iside of shared/project_name
-
+```git
 git intit
 git config core.autocrlf false
 git add .
 git commit -m ''
 git remote add origin 'url'
 git push -u orgin master
-
+```
 ## After git time for Part 2
 
 remove comments at ansible>main.yml
