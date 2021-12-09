@@ -13,6 +13,9 @@ C:\HashiCorp\Vagrant\embedded\gems\2.2.19\gems\vagrant-2.2.19\bin\vagrant
 Encoding.default_external = Encoding.find('Windows-1250')
 Encoding.default_internal = Encoding.find('Windows-1250')
 ```
+&  
+
+change Oracle VirtualBox VM location  
 
 > Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
 
