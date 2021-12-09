@@ -40,6 +40,7 @@ composer create-project laravel/laravel project_name
 ```git
 git intit
 git config core.autocrlf false
+//change .gitattributes > * text=off
 git add .
 git commit -m ''
 git remote add origin 'url'
