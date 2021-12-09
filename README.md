@@ -15,9 +15,9 @@ Encoding.default_internal = Encoding.find('Windows-1250')
 ```
 &  
 
-change Oracle VirtualBox VM location  
+change Oracle VirtualBox VM location  & adding windows Enviroment Variable VAGRANT_HOME = C:\HashiCorp\Vagrant\.vagrant.d
 
-> Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+> Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestar
 
 configure .vlocal.conf.yml rename project names
 
