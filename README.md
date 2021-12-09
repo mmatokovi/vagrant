@@ -44,7 +44,7 @@ git config core.autocrlf false
 git add .
 git commit -m ''
 git remote add origin 'url'
-git push -u orgin master
+git push -u origin master
 ```
 ## After git time for Part 2
 
