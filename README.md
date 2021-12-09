@@ -4,7 +4,7 @@ Dev + Deployment Environment
 
 ## Initial config
 
-if windows user profile contains error msg: `incompatible character encodings: CP852 and Windows-1250`
+if windows user profile contains error msg: `incompatible character encodings: CP852 and Windows-1250`  
 C:\HashiCorp\Vagrant\embedded\gems\2.2.19\gems\vagrant-2.2.19\bin\vagrant
 
 ```
