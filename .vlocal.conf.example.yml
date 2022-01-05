@@ -1,8 +1,8 @@
 ---
-project_name: project_name
+project_name: zagrabi
 network:
   ip_address: 192.168.33.77
-  hostname: project_name.io
+  hostname: zagrabi.io
 vbox:
   memory: 2048
 ---

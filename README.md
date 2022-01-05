@@ -59,6 +59,12 @@ cd /var/www/html
 composer create-project laravel/laravel project_name
 ```
 
+-then open the git bash as admin and run this command  
+fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
+
+
+ln -s /var/www/html/zagrabi
+npm i nuxt
 sudo ls /root  
 sudo su  
 ll  

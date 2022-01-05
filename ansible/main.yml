@@ -101,36 +101,36 @@
 
 #PART 2 ---------------------------------------------------------------------------
 
-# - name: link laravel storage
-#   shell: php artisan storage:link
-#   args:
-#     chdir: /var/www/html/zagrabi
+  - name: link laravel storage
+    shell: php artisan storage:link
+    args:
+      chdir: /var/www/html/zagrabi
 
 # - name: Laravel migrate
 #   shell: php artisan migrate:fresh --seed
 #   args:
 #     chdir: /var/www/html/zagrabi
 
-# - name: Install npm packages
-#   community.general.npm:
-#     path: /var/www/html/zagrabi
+  - name: Install npm packages
+    community.general.npm:
+      path: /var/www/html/zagrabi
 
 # - name: run webpack
 #   shell: npm run build
 #   args:
 #     chdir: /var/www/html/ravel
 
-# - name: convenient link from dev user home to site directory
-#   file:
-#     src: /var/www/html/zagrabi
-#     dest: /home/vagrant/zagrabi
-#     state: link
+  - name: convenient link from dev user home to site directory
+    file:
+      src: /var/www/html/zagrabi
+      dest: /home/vagrant/zagrabi
+      state: link
 
-# - name: add laravel artisan alias
-#   lineinfile:
-#     dest: /home/vagrant/.bashrc
-#     line: "alias art='php artisan'"
-#     owner: vagrant
+  - name: add laravel artisan alias
+    lineinfile:
+      dest: /home/vagrant/.bashrc
+      line: "alias art='php artisan'"
+      owner: vagrant
 
 #supervisord master config + horizon/larasock
 

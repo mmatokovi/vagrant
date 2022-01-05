@@ -103,10 +103,11 @@ Vagrant.configure("2") do |config|
 
 
   # Provider-specific configuration
-  #
+  # FOR npm i nuxt fix added vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/shared", "1"]
   config.vm.provider 'virtualbox' do |vb|
     vb.memory = lcfg['vbox']['memory']
     vb.gui = lcfg['vbox']['use_gui']
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/shared", "1"]
   end
 
   # Ansible Preparation
