@@ -71,4 +71,5 @@ ll
 cd /etc
 
 Service ngnix status/stop/start/restart/reload
-vagrant up/halt/provision/suspend/resume
+vagrant up/halt/provision/suspend/resume  
+vagrant ssh-config
