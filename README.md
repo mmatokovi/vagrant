@@ -1,11 +1,56 @@
-# Vagrant 
+# Vagrant Imaves
 
-Dev + Deployment Environment 
+Website Dev + Deployment Environment inside of linux OS
 
-## Initial config
+This documentation explains the nitty-gritty details and is therefore intended for developers and web-site architects.
+It contains the following topics:  
 
-if windows user profile contains error msg: `incompatible character encodings: CP852 and Windows-1250`  
-C:\HashiCorp\Vagrant\embedded\gems\2.2.19\gems\vagrant-2.2.19\bin\vagrant
+## Prerequisites
+
+To configure Website Dev Environment first you need to install [Vagrant](https://www.vagrantup.com/) and [Oracle VM VirtualBox](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html)  
+knowledge in bash  
+
+
+## Configuration of the Vagrantfile & ansible
+
+* rename .vlocal.conf.example.yml to .vlocal.conf.yml
+
+## Create virtual machine & SSH to created VM
+```Powershell
+PS ~/vagrant-imaves> vagrant up
+PS ~/vagrant-imaves> vagrant ssh
+```
+
+### Create Project
+```bash
+$ cd /var/www/html
+$ composer create-project laravel/laravel project_name
+# convenient link from dev user home to site directory
+$ sudo ln -s /var/www/html/project_name
+```
+
+
+### git intit inside of shared/project_name
+```git
+git init
+git config core.autocrlf false
+//change .gitattributes > * text=off
+git add .
+git -c user.name='Your name' -c user.email=Your@emailaddres.com commit -m "msg"
+git remote add origin 'url'
+git push -u origin master
+```
+
+## Useful commands:
+```Powershell
+PS ~/vagrant-imaves> vagrant up/halt/provision/destroy/status
+PS ~/vagrant-imaves> vagrant ssh-config
+```
+
+## Probable errors:
+
+If windows user profile contains error msg: `incompatible character encodings: CP852 and Windows-1250`  
+go to: `C:\HashiCorp\Vagrant\embedded\gems\2.2.19\gems\vagrant-2.2.19\bin\vagrant`
 
 ```
 #!/usr/bin/env ruby
@@ -19,57 +64,3 @@ change Oracle VirtualBox VM location  & adding windows Enviroment Variable VAGRA
 
 > Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestar
 
-configure .vlocal.conf.yml rename project names
-
-```Powershell
-vagrant ssh
-```
-```bash
-cd /var/www/html
-```
-```bash
-composer create-project laravel/laravel project_name
-```
-
-### Install Composer
-`cd /var/www/html`
-
-composer create-project laravel/laravel project_name
-
-## git intit iside of shared/project_name
-```git
-git intit
-git config core.autocrlf false
-//change .gitattributes > * text=off
-git add .
-git commit -m ''
-git remote add origin 'url'
-git push -u origin master
-```
-## After git time for Part 2
-
-remove comments at ansible>main.yml
-
-## Useful commands
-
-```bash
-cd /var/www/html
-```
-```bash
-composer create-project laravel/laravel project_name
-```
-
--then open the git bash as admin and run this command  
-fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
-
-
-ln -s /var/www/html/zagrabi
-npm i nuxt
-sudo ls /root  
-sudo su  
-ll  
-cd /etc
-
-Service ngnix status/stop/start/restart/reload
-vagrant up/halt/provision/suspend/resume  
-vagrant ssh-config
