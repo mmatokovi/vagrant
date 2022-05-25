@@ -64,3 +64,8 @@ change Oracle VirtualBox VM location  & adding windows Enviroment Variable VAGRA
 
 > Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestar
 
+## License
+[MIT](LICENSE)
+
+## Author Information
+[Mislav Matoković](https://github.com/mmatokovi)
