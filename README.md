@@ -1,4 +1,4 @@
-# Vagrant Imaves
+# Vagrant Ansible
 
 Website Dev + Deployment Environment inside of linux OS
 
